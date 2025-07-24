@@ -1,9 +1,15 @@
-user_input = input("Enter Number (space-separate): ").strip().split()
-my_list = [int(x) for x in user_input]
-number = int(input("What's Number you need to find sum : "))
+def find_sum_pair(my_list:list,number:int):
+    
+    for index,n in enumerate(my_list):
+        if (my_list[index] + my_list[index+1]) == number:
+            return my_list[index], my_list[index+1]
+            
+    
+def main():
+    my_list = list(map(int, input("Enter Number (space-separate): ").strip().split()))
+    number = int(input("What's Number you need to find sum : "))
+    total = find_sum_pair(my_list, number)
+    print(total)
 
-for index,n in enumerate(my_list):
-    if (my_list[index] + my_list[index+1]) == number:
-        print(my_list[index], my_list[index+1])
-        break
-
+if __name__ == "__main__":
+    main()
